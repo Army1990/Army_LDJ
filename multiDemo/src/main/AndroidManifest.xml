@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ichoice.egan.eganview">
+
+    <!-- <uses-sdk android:minSdkVersion="8"></uses-sdk> -->
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- ###################声明SDK使用的相关权限###################### -->
+    <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取mac地址作为用户的备用唯一标识 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取用户手机的IMEI，用来唯一的标识用户 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 缓存资源优先存入SDcard -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 百度 权限 -->
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> -->
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> -->
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE"/> -->
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
+    <!-- 访问网络，网络定位需要上网 -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- QQ、QQ空间所需权限 -->
+    <!-- <uses-permission android:name="android.permission.GET_TASKS" /> -->
+    <application
+        android:name=".base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NineSpaceGridView.NineSpaceGridViewActivity" />
+        <activity android:name=".SwipeRefreshLayoutActivity.GitHubSwipeRefreshLayoutActivity" />
+        <activity android:name=".QQLoginActivity.QQLoginInActivity" />
+        <!-- <activity android:name=".RecyclerViewActivity" /> -->
+
+
+        <!-- *************************************************************************** -->
+        <!-- ****************下面是QQ自家登陆、分享api所需要配置代码*************************** -->
+        <!-- *************************************************************************** -->
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID -->
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".UmengActivity.UmengActivity">
+            <meta-data
+                android:name="UMENG_APPKEY"
+                android:value="563331d1e0f55a1431001941" />
+            <meta-data
+                android:name="UMENG_CHANNEL"
+                android:value="Channel ID" />
+        </activity>
+        <activity android:name=".RecyclerViewActivity.RecyclerViewActivity" />
+
+        <!-- *************************************************************************** -->
+        <!-- ************************下面是有盟所需要配置代码******************************** -->
+        <!-- *************************************************************************** -->
+        <!-- 分享编辑页 -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <!-- ###################添加UmengAppkey###################### -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="563331d1e0f55a1431001941" />
+
+        <meta-data
+            android:name="UMENG_MY_DEMO01_APPKEY"
+            android:value="56a2e76c67e58e499b001bc4"/>
+
+        <!-- ###################百度定位服务###################### -->
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="IhjDygjMTdloqNZdBRRlbmCN" />
+
+        <activity android:name=".WeiMaiActivity.WeiMaiActivity" />
+        <activity android:name=".viewpager.ViewPagerActivity" />
+        <activity android:name=".viewpager.ViewPager_Activity" />
+        <activity android:name=".listview.ListViewActivity" />
+        <activity android:name=".GestureDetector.GestureDetectorActivity" />
+        <activity android:name=".RichScan.RichScanActivity" />
+        <activity android:name=".LockActivity.LockActivity" />
+        <activity android:name=".UICustom.UICustomActivity"></activity>
+    </application>
+
+</manifest>

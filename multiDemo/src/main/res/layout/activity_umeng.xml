@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UmengActivity.UmengActivity">
+
+    <Button
+        android:id="@+id/button_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有盟自带分享面板" />
+
+    <Button
+        android:id="@+id/button_MyShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_share"
+        android:text="自定义分享面板" />
+
+    <Button
+        android:id="@+id/button_QQ_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_MyShare"
+        android:text="QQ三方登陆" />
+
+    <Button
+        android:id="@+id/button_QQ_User"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_QQ_Login"
+        android:text="QQ登陆后获得用户信息" />
+
+    <ImageView
+        android:id="@+id/imageView_QQ_UserIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView_QQ_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView_QQ_UserIcon"
+        android:text="用户名" />
+
+    <Button
+        android:id="@+id/button_QQ_Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_QQ_User"
+        android:text="QQ注销" />
+
+    <Button
+        android:id="@+id/button_shake_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_QQ_Logout"
+        android:text="摇一摇截屏分享" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal">
+
+
+
+        <TextView
+            android:id="@+id/tx_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/teqq"
+            android:gravity="center"
+            android:text="QQ" />
+
+        <TextView
+            android:id="@+id/xl_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/weibo"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="新浪微博" />
+
+        <TextView
+            android:id="@+id/tx_wechat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wechat"
+            android:gravity="center"
+            android:text="微信" />
+
+    </LinearLayout>
+
+</RelativeLayout>
